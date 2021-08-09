@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "car-dock",
+    "slug": "car-dock",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "car-dock"
+}
