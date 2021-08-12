@@ -10,7 +10,7 @@ import {
 
 import { COLORS, FONTS, SIZES, images, icons } from "../constants";
 
-const HEADER_HEIGHT = 450;
+const HEADER_HEIGHT = 300;
 
 const CarDetail = ({navigation, route}) => {
 
@@ -23,32 +23,38 @@ const CarDetail = ({navigation, route}) => {
 
     function renderHeaderBar() {
         return (
-            <View style={{
-                position: "absolute",
-                top: 10,
+            <View 
+            style={{  
+                top: 0,
                 left: 0,
                 right: 0,
-                height: 100,
+                height: 70,
+                flexDirection: "row",
+                justifyContent: "space-between",
                 paddingHorizontal: SIZES.padding,
-            }}>
-                <TouchableOpacity style={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: 35,
-                    width: 35,
-                    borderRadius: 18,
-                    borderWidth: 1,
-                    borderColor: COLORS.lightGray,
-                    backgroundColor: COLORS.darkBlue   
-                }}
-                onPress={() => navigation.goBack()}
+                backgroundColor: COLORS.darkBlue
+            }}
+            >
+                <TouchableOpacity 
+                    style={{
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: 35,
+                        width: 35,
+                        borderRadius: 18,
+                        borderWidth: 1,
+                        borderColor: COLORS.lightGray,
+                        backgroundColor: COLORS.white,
+                        marginTop: 20
+                    }}
+                    onPress={() => navigation.goBack()}
                 >
                     <Image
                         source={icons.back}
                         style={{
-                            width: 20,
+                            width: 30,
                             height: 20,
-                            tintColor: COLORS.white
+                            tintColor: COLORS.darkBlue
                         }}
                     />
                 </TouchableOpacity>
@@ -66,29 +72,53 @@ const CarDetail = ({navigation, route}) => {
                     resizeMode="contain"
                     style={{
                         height: HEADER_HEIGHT,
-                        width: "100%"
+                        width: "200%"
                     }}
                 />
             </View>
         )
     }
 
-    return (
-        <View
-            style={{
-                flex: 1,
-                backgroundColor: COLORS.white
-            }}
-        >
-            <View>
-                {renderHeaderBar()}
-                {renderCarCardHeader()}
+    function renderCarDetail() {
+        return (
+            <View style={{
+                marginTop: 30,
+                borderBottomWidth: 4,
+                paddingHorizontal: 40,
+            }}>
+                <Text style={{ 
+                    color: COLORS.darkBlue,
+                    ...FONTS.h2,
+                }}>
+                  {selectedCar?.name},   {selectedCar?.year}
+                </Text>
+                
+                <Text 
+                    style={{
+                        color: COLORS.darkBlue,
+                        ...FONTS.h2,
+                        marginTop: 20,
+                        fontWeight: "bold"
+                    }}
+                >
+                    {selectedCar?.cost}
+                </Text>
+                
             </View>
+        )
+    }
+
+    function renderCarFeature() {
+        return (
+            <View style={{
+                borderBottomWidth: 4,
+                marginTop: 20
+            }}>
             <View 
                 style={{
                     flexDirection: "row",
                     paddingHorizontal: 40,
-                    marginVertical: 5
+                    marginVertical: 5,
                 }}
             >
                 <Text style={{
@@ -121,8 +151,8 @@ const CarDetail = ({navigation, route}) => {
                         alignItems: "flex-end",
                         justifyContent: "center",
                         height: 50,
-                        width: 60,
-                        ...FONTS.body2,
+                        width: 50,
+                        ...FONTS.body3,
                     }}>{selectedCar?.color?.color3}</Text>
                 </TouchableOpacity>
                 
@@ -159,6 +189,23 @@ const CarDetail = ({navigation, route}) => {
                     }}>
                         {selectedCar?.feature?.drive}
                     </Text>
+                </View>
+            </View>
+        )
+    }
+
+    return (
+        <View
+            style={{
+                flex: 1,
+                backgroundColor: COLORS.white
+            }}
+        >   
+            <View>
+                {renderHeaderBar()}
+                {renderCarCardHeader()}
+                {renderCarDetail()}
+                {renderCarFeature()}
             </View>
         </View>
     )
