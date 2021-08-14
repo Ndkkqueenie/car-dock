@@ -194,6 +194,14 @@ const CarDetail = ({navigation, route}) => {
         )
     }
 
+    function renderButton() {
+        return (
+            <TouchableOpacity>
+                
+            </TouchableOpacity>
+        )
+    }
+
     return (
         <View
             style={{
