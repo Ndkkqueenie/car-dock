@@ -5,4 +5,4 @@
 Car Dock is being built with JavaScript, React Native, Commercejs and Stripe
 *View project development state image and demo below*
 
-![LandingScreen](https://github.com/Ndkkqueenie/car-dock/blob/master/assets/landing_screen.gif) ![HomeScreen](https://github.com/Ndkkqueenie/car-dock/blob/master/assets/home_screen.gif)
+![LandingScreen](https://github.com/Ndkkqueenie/car-dock/blob/master/assets/landing_screen.gif)    ![HomeScreen](https://github.com/Ndkkqueenie/car-dock/blob/master/assets/home_screen.gif)
